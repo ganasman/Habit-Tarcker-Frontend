@@ -1,50 +1,126 @@
-# Welcome to your Expo app 👋
+# 🌍 Country Info App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplikasi ini menampilkan informasi negara-negara di dunia menggunakan API dari [REST Countries](https://restcountries.com/). Dibangun dengan Laravel (Backend) dan React Native (Frontend).
 
-## Get started
+---
 
-1. Install dependencies
+## ✅ Langkah Install Project
+
+### 🔧 Backend (Laravel)
+
+1. Clone repository:
+
+   ```bash
+   git clone https://github.com/username/backend-countryinfo.git
+   cd backend-countryinfo
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   composer install
+   ```
+
+3. Copy file `.env`:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Generate app key:
+
+   ```bash
+   php artisan key:generate
+   ```
+
+5. Jalankan server:
+
+   ```bash
+   php artisan serve
+   ```
+
+---
+
+### 📱 Frontend (React Native)
+
+1. Masuk ke folder frontend:
+
+   ```bash
+   cd frontend-countryinfo
+   ```
+
+2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Jalankan Metro bundler:
 
    ```bash
-   npx expo start
+   npx react-native start
    ```
 
-In the output, you'll find options to open the app in a
+4. Jalankan app (Android):
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   ```bash
+   npx react-native run-android
+   ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+> ⚠️ Jika menggunakan emulator Android, pastikan API Laravel diakses dengan `http://10.0.2.2:{port}`
+> Jika menggunakan device fisik, gunakan `ngrok` atau IP lokal sesuai jaringan.
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## 🚀 Menjalankan Backend dan Frontend
 
-```bash
-npm run reset-project
+| Komponen     | Perintah                                                     |
+| ------------ | ------------------------------------------------------------ |
+| Laravel      | `php artisan serve`                                          |
+| React Native | `npx react-native start` lalu `npx react-native run-android` |
+
+---
+
+## 🔗 Penjelasan Singkat Endpoint API
+
+| Endpoint                | Method | Deskripsi                                             |
+| ----------------------- | ------ | ----------------------------------------------------- |
+| `/api/countries`        | `GET`  | Mengambil seluruh data negara dari REST Countries API |
+| `/api/countries/{name}` | `GET`  | Mengambil data negara berdasarkan nama tertentu       |
+
+Contoh respons:
+
+```json
+[
+  {
+    "name": "Indonesia",
+    "capital": "Jakarta",
+    "region": "Asia",
+    "flag": "https://flagcdn.com/id.svg"
+  }
+]
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🧪 Screenshot Hasil Testing
 
-To learn more about developing your project with Expo, look at the following resources:
+### 📬 Postman
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+![Postman Test](/screenshots/postman-test.png)
 
-## Join the community
+### 📲 App
 
-Join our community of developers creating universal apps.
+![App Test](/screenshots/app-test.png)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 📌 Catatan
+
+* API publik diambil dari: [https://restcountries.com/v3.1/all](https://restcountries.com/v3.1/all)
+* Tidak perlu API key
+* Respons berbentuk JSON
+
+---
+
+Jika kamu ingin, saya juga bisa bantu buatkan file `README.md` lengkap dalam format siap commit ke GitHub. Mau sekalian saya bantu buatkan?
